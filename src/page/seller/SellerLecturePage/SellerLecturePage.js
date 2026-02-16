@@ -28,7 +28,7 @@ const SellerLecturePage = () => {
 
   //상품리스트 가져오기 (url쿼리 맞춰서)
     useEffect(() => {
-    dispatch(getLectureList(query));
+    dispatch(getLectureList(searchQuery));
   }, []);
 
   useEffect(() => {
@@ -96,6 +96,9 @@ const SellerLecturePage = () => {
         mode={mode}
         showDialog={showDialog}
         setShowDialog={setShowDialog}
+        onSuccess={() => {
+          dispatch(getLectureList(searchQuery));
+        }}
       />
     </div>
   );

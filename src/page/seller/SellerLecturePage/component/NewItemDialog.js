@@ -32,7 +32,7 @@ const InitialFormData = {
   dscntRt: 0
 };
 
-const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
+const NewItemDialog = ({ mode, showDialog, setShowDialog, onSuccess }) => {
   const { error, success, selectedLecture, lectureSno } = useSelector(
     (state) => state.lecture
   );
@@ -49,7 +49,10 @@ const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
   const [imgError, setImgError] = useState(false);
 
   useEffect(() => {
-    if (success) setShowDialog(false);
+    if (success) {
+      setShowDialog(false);
+      onSuccess();
+    }
   }, [success]);
 
   useEffect(() => {
