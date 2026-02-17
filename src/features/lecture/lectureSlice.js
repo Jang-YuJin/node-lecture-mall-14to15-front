@@ -39,7 +39,7 @@ export const getLectureDetail = createAsyncThunk(
 
 export const createLecture = createAsyncThunk(
   "lectures/createLecture",
-  async (formData, { dispatch, rejectWithValue }) => {
+  async (formData, { dispatch, getState, rejectWithValue }) => {
     try {
       const response = await api.post('/lecture', formData);
 
